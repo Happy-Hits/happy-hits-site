@@ -47,8 +47,11 @@
     main section{padding:64px 0}
     .hero{background:#fff1d8}
     .hero h1{font-family:'Bangers',cursive;font-size:clamp(42px,7vw,64px);margin:0 0 10px}
-    .cta{display:inline-block;background:var(--brand);color:#fff;padding:14px 22px;border-radius:16px;text-decoration:none;font-weight:800;box-shadow:0 6px 0 var(--brand-dark);border:2px solid var(--ink);transition:transform .12s ease, box-shadow .12s ease}
+    .cta{display:inline-flex;gap:10px;align-items:center;background:var(--brand);color:#fff;padding:14px 22px;border-radius:16px;text-decoration:none;font-weight:800;box-shadow:0 6px 0 var(--brand-dark);border:2px solid var(--ink);transition:transform .12s ease, box-shadow .12s ease}
+    .cta img{height:18px;width:18px;display:inline-block}
     .cta:hover{transform:translateY(-1px);box-shadow:0 8px 0 var(--brand-dark)}
+    .pill{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border:2px solid var(--ink);border-radius:999px;background:#fffef8;text-decoration:none;color:var(--ink);font-weight:700}
+    .pill img{height:18px;width:18px;display:inline-block}
 
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
     .span-6{grid-column:span 6}
@@ -57,10 +60,8 @@
     .card{border:2.5px solid var(--ink);border-radius:22px;padding:18px;background:#fffef8;box-shadow:6px 6px 0 #00000010}
     .video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;border:2.5px solid var(--ink);background:#000;box-shadow:6px 6px 0 #00000010}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
     footer{padding:24px 0;background:#fffaf0;text-align:center;font-size:14px;border-top:2px solid #e7d7b6}
-    .swatches{display:flex;gap:10px;margin-top:10px}
-    .swatch{width:46px;height:34px;border:2px solid var(--ink);border-radius:8px;box-shadow:4px 4px 0 #00000010}
-    .pill{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border:2px solid var(--ink);border-radius:999px;background:#fffef8;text-decoration:none;color:var(--ink);font-weight:700}
   </style>
 </head>
 <body>
@@ -75,8 +76,8 @@
         <div class="links" id="navLinks">
           <a href="index.html#about">About</a>
           <a href="live.html">Live</a>
+          <a href="index.html#shop">Shop</a>
           <a href="index.html#contact">Contact</a>
-          <a href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">Shop</a>
         </div>
 
         <button class="burger" id="burgerBtn" aria-label="Menu">☰</button>
@@ -91,15 +92,8 @@
         <h1>Good hit, good mood.</h1>
         <p>We’re Happy Hits — sports card breaks, live streams, and great vibes. Join our breaks, chase grails, and score happy hits with Marco &amp; Jen.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="live.html" class="cta">Watch Live</a>
-          <a href="https://happyhitscards.myshopify.com/collections/all" class="cta" target="_blank" rel="noopener">Shop Cards</a>
-        </div>
-
-        <div class="swatches" aria-label="Brand palette" style="margin-top:12px">
-          <div class="swatch" style="background:var(--brand)" title="brand"></div>
-          <div class="swatch" style="background:var(--accent)" title="accent"></div>
-          <div class="swatch" style="background:var(--paper)" title="paper"></div>
-          <div class="swatch" style="background:var(--ink)" title="ink"></div>
+          <a href="live.html" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg"> Watch Live</a>
+          <a href="#shop" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shopify.svg"> Shop</a>
         </div>
       </div>
     </section>
@@ -110,26 +104,102 @@
         <div class="span-6">
           <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">About Happy Hits</h2>
           <p class="lead">We are a small family business committed to the sports cards community. Everyone's welcome at the table!</p>
-          <p>Follow us and join our rips, milestone FREE BREAKS, and more.</p>
 
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-            <a class="pill" href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">📸 Instagram</a>
-            <a class="pill" href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">🎤 Whatnot</a>
-            <a class="pill" href="https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw" target="_blank" rel="noopener">▶️ YouTube</a>
-            <a class="pill" href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">🛒 Shop</a>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+            <a class="pill" href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg"> Instagram
+            </a>
+            <a class="pill" href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/whatnot.svg"> Whatnot
+            </a>
+            <a class="pill" href="https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw" target="_blank" rel="noopener">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg"> YouTube
+            </a>
           </div>
         </div>
 
         <div class="span-6">
-          <div class="card">
-            <p><b>Quick facts</b></p>
-            <ul>
-              <li>Streaming on YouTube &amp; Whatnot</li>
-              <li>Vintage cartoon vibe, modern pulls</li>
-              <li>Contact: <a href="mailto:happyhitssocials@gmail.com">happyhitssocials@gmail.com</a></li>
-            </ul>
-          </div>
+          <!-- (Removed quick facts as requested) -->
+          <div class="card" style="display:none"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- SHOP (Shopify embed) -->
+    <section id="shop">
+      <div class="wrap">
+        <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Shop</h2>
+        <p class="lead">Browse our collection right here. If nothing appears, use the button below.</p>
+
+        <!-- Fallback button in case the embed isn't configured yet -->
+        <p><a class="pill" href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">
+          <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shopify.svg"> Open our Shopify collection
+        </a></p>
+
+        <!-- ✅ Shopify Buy Button — TODO: paste your credentials (see comments) -->
+        <div id="hh-collection"></div>
+
+        <script>
+          /**
+           * HOW TO ACTIVATE THIS EMBED (2 minutes)
+           * 1) In Shopify admin, add the "Buy Button" sales channel.
+           * 2) Create a Buy Button for: Collection → "All products" (or your preferred collection).
+           * 3) Click "Copy code". In that code you'll see:
+           *    - shop domain (yours is happyhitscards.myshopify.com)
+           *    - storefront access token
+           *    - collection id
+           * 4) Paste those 3 values into the placeholders below, then save this file.
+           */
+          const SHOP_DOMAIN = "happyhitscards.myshopify.com";                // ✅ already set
+          const STOREFRONT_ACCESS_TOKEN = "PASTE_YOUR_STOREFRONT_TOKEN";     // 🔁 paste from Shopify Buy Button code
+          const COLLECTION_ID = "PASTE_YOUR_COLLECTION_ID";                  // 🔁 paste numeric/gid from Shopify code
+
+          (function() {
+            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+            if (window.ShopifyBuy) {
+              if (window.ShopifyBuy.UI) {
+                initShopifyBuy();
+              } else {
+                loadScript();
+              }
+            } else {
+              loadScript();
+            }
+            function loadScript() {
+              var script = document.createElement('script');
+              script.async = true;
+              script.src = scriptURL;
+              script.onload = initShopifyBuy;
+              document.head.appendChild(script);
+            }
+            function initShopifyBuy() {
+              if (!SHOP_DOMAIN || !STOREFRONT_ACCESS_TOKEN || !COLLECTION_ID) return;
+              var client = ShopifyBuy.buildClient({
+                domain: SHOP_DOMAIN,
+                storefrontAccessToken: STOREFRONT_ACCESS_TOKEN,
+              });
+              ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('collection', {
+                  id: COLLECTION_ID,
+                  node: document.getElementById('hh-collection'),
+                  moneyFormat: '${{amount}}',
+                  options: {
+                    product: {
+                      buttonDestination: 'checkout',
+                      isButton: true,
+                      text: { button: 'Buy now' },
+                      padding: 12,
+                      contents: { img: true, title: true, price: true, options: false }
+                    },
+                    cart: { startOpen: false },
+                    toggle: { sticky: true },
+                    productSet: { styles: { products: { '@media (min-width: 601px)': { 'grid-template-columns': 'repeat(3, 1fr)' } } } }
+                  }
+                });
+              });
+            }
+          })();
+        </script>
       </div>
     </section>
 
@@ -140,24 +210,17 @@
           <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Contact</h2>
           <p class="lead">Have a question, want to sponsor a giveaway, or book a custom break? Drop us a note.</p>
 
-          <!-- For a real form without a server, replace mailto: with a Formspree endpoint later -->
+          <!-- For a real in-page form later, replace mailto: with a Formspree endpoint -->
           <form action="mailto:happyhitssocials@gmail.com" method="POST" enctype="text/plain">
             <input name="name" placeholder="Your name" required />
             <input type="email" name="email" placeholder="Your email" required />
             <textarea name="message" placeholder="Tell us what you need" required></textarea>
             <button class="cta" type="submit">Send message</button>
           </form>
-          <p style="font-size:13px;opacity:.85;margin-top:8px">Tip: For an in-page form (no email app), use Formspree later.</p>
         </div>
 
         <div class="span-6">
-          <div class="card">
-            <p><b>Business</b></p>
-            <p>Email: <a href="mailto:happyhitssocials@gmail.com">happyhitssocials@gmail.com</a><br>
-            Instagram: <a href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">@happyhitscards</a><br>
-            Whatnot: <a href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">@marcojam_happyhits</a></p>
-            <p class="small">Logos and graphics © Happy Hits. All rights reserved.</p>
-          </div>
+          <!-- (Business section removed) -->
         </div>
       </div>
     </section>
@@ -165,6 +228,9 @@
 
   <footer>
     <div class="wrap">
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+        <a class="pill" href="mailto:happyhitssocials@gmail.com">✉️ happyhitssocials@gmail.com</a>
+      </div>
       © <span id="year"></span> Happy Hits · “Hot hands, happy hits.”
     </div>
   </footer>
