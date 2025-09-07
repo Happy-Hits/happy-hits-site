@@ -66,9 +66,9 @@
 
     /* Shopify UI containers */
     #hh-collection{margin-top:16px}
-    .video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;border:2.5px solid var(--ink);background:#000;box-shadow:6px 6px 0 #00000010}
 
     footer{padding:24px 0;background:#fffaf0;text-align:center;font-size:14px;border-top:2px solid #e7d7b6}
+    .ig-embed iframe{width:100%; border:none; overflow:hidden}
   </style>
 </head>
 <body>
@@ -105,7 +105,7 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (logo on the right) -->
     <section id="about">
       <div class="wrap grid">
         <div class="span-6">
@@ -119,149 +119,4 @@
             <a class="pill" href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">
               <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/whatnot.svg"> Whatnot
             </a>
-            <a class="pill" href="https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw" target="_blank" rel="noopener">
-              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/youtube.svg"> YouTube
-            </a>
-          </div>
-        </div>
-
-        <div class="span-6">
-          <!-- (Quick facts removed) -->
-          <div class="card" style="display:none"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SHOP (Shopify embed with variants + cart) -->
-    <section id="shop">
-      <div class="wrap">
-        <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Shop</h2>
-        <p class="lead">Browse our collection right here. If nothing appears, use the button below.</p>
-
-        <!-- Fallback link (always works) -->
-        <p><a class="pill" href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">
-          <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/shopify.svg"> Open our Shopify collection
-        </a></p>
-
-        <!-- Embedded collection -->
-        <div id="hh-collection"></div>
-
-        <script>
-          /* Shopify Buy Button configuration — shows variant selectors + cart */
-          const SHOP_DOMAIN = "vi0mtb-k1.myshopify.com";
-          const STOREFRONT_ACCESS_TOKEN = "741fcfc0e0b6abeab7408acbc86cd351";
-          const COLLECTION_ID = "299786338392";
-
-          (function() {
-            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-            if (window.ShopifyBuy && window.ShopifyBuy.UI) init(); else {
-              var s = document.createElement('script'); s.async = true; s.src = scriptURL;
-              s.onload = init; document.head.appendChild(s);
-            }
-
-            function init() {
-              var client = ShopifyBuy.buildClient({
-                domain: SHOP_DOMAIN,
-                storefrontAccessToken: STOREFRONT_ACCESS_TOKEN,
-              });
-
-              ShopifyBuy.UI.onReady(client).then(function (ui) {
-                ui.createComponent('collection', {
-                  id: COLLECTION_ID,
-                  node: document.getElementById('hh-collection'),
-                  moneyFormat: '${{amount}}',
-                  options: {
-                    product: {
-                      buttonDestination: 'cart',       // add to cart (not direct checkout)
-                      text: { button: 'Add to cart' },
-                      contents: {
-                        img: true,
-                        title: true,
-                        price: true,
-                        options: true,                 // show variant selectors
-                        quantity: true                 // allow quantity select
-                      }
-                    },
-                    cart: {
-                      startOpen: false,
-                      popup: true,                     // floating cart toggle
-                      text: { title: "Your cart", button: "Checkout" }
-                    },
-                    toggle: {
-                      sticky: true                    // cart toggle stays visible
-                    },
-                    productSet: {
-                      styles: {
-                        products: {
-                          '@media (min-width: 601px)': {
-                            'grid-template-columns': 'repeat(3, 1fr)'
-                          }
-                        }
-                      }
-                    }
-                  }
-                });
-              });
-            }
-          })();
-        </script>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap grid">
-        <div class="span-6">
-          <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Contact</h2>
-          <p class="lead">Have a question, want to sponsor a giveaway, or book a custom break? Drop us a note.</p>
-
-          <!-- Mailto for now; we can switch to Formspree later -->
-          <form action="mailto:happyhitssocials@gmail.com" method="POST" enctype="text/plain">
-            <input name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Your email" required />
-            <textarea name="message" placeholder="Tell us what you need" required></textarea>
-            <button class="cta" type="submit">Send message</button>
-          </form>
-        </div>
-
-        <div class="span-6">
-          <!-- (Business section removed) -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
-        <a class="pill" href="mailto:happyhitssocials@gmail.com">✉️ happyhitssocials@gmail.com</a>
-      </div>
-      © <span id="year"></span> Happy Hits · “Hot hands, happy hits.”
-    </div>
-  </footer>
-
-  <!-- JSON-LD for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Happy Hits",
-    "url":"https://happy-hits.com/",
-    "logo":"https://happy-hits.github.io/happy-hits-site/assets/logo.png",
-    "sameAs":[
-      "https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw",
-      "https://www.instagram.com/happyhitscards/",
-      "https://www.whatnot.com/user/marcojam_happyhits",
-      "https://happyhitscards.myshopify.com/collections/all"
-    ]
-  }
-  </script>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const burger = document.getElementById('burgerBtn');
-    const links = document.getElementById('navLinks');
-    burger?.addEventListener('click', () => links.classList.toggle('open'));
-  </script>
-</body>
-</html>
+            <a class="pill" href="https://www.youtube.com/channel/U
