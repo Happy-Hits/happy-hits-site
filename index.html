@@ -119,4 +119,161 @@
             <a class="pill" href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">
               <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/whatnot.svg"> Whatnot
             </a>
-            <a class="pill" href="https://www.youtube.com/channel/U
+            <a class="pill" href="https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw" target="_blank" rel="noopener">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/youtube.svg"> YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Right column: logo card -->
+        <div class="span-6">
+          <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:260px;background:#fff">
+            <img src="assets/logo.png" alt="Happy Hits logo" style="max-width:100%; height:auto; border:2px solid var(--ink); border-radius:16px; box-shadow:6px 6px 0 #00000010" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM (SnapWidget embed) -->
+    <section id="instagram">
+      <div class="wrap">
+        <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Instagram</h2>
+        <p class="lead">Latest posts from <a href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">@happyhitscards</a>.</p>
+
+        <div class="ig-embed" style="max-width:1100px;margin:0 auto">
+          <!-- SnapWidget (responsive) -->
+          <iframe
+            src="https://snapwidget.com/embed/1107152"
+            class="snapwidget-widget"
+            allowtransparency="true"
+            frameborder="0"
+            scrolling="no"
+            loading="lazy"
+            title="Posts from Instagram"
+            style="border:none; overflow:hidden; width:100%; height:520px"></iframe>
+        </div>
+
+        <p style="margin-top:8px">
+          <a class="pill" href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">
+            <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/instagram.svg"> Open Instagram
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- SHOP (Shopify embed with black buttons + cart) -->
+    <section id="shop">
+      <div class="wrap">
+        <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Shop</h2>
+        <p class="lead">Browse our collection right here. If nothing appears, use the button below.</p>
+
+        <p><a class="pill" href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">
+          <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/shopify.svg"> Open our Shopify collection
+        </a></p>
+
+        <div id="hh-collection"></div>
+
+        <script>
+          const SHOP_DOMAIN = "vi0mtb-k1.myshopify.com";
+          const STOREFRONT_ACCESS_TOKEN = "741fcfc0e0b6abeab7408acbc86cd351";
+          const COLLECTION_ID = "299786338392";
+
+          (function() {
+            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+            if (window.ShopifyBuy && window.ShopifyBuy.UI) init(); else {
+              var s = document.createElement('script'); s.async = true; s.src = scriptURL;
+              s.onload = init; document.head.appendChild(s);
+            }
+
+            function init() {
+              var client = ShopifyBuy.buildClient({
+                domain: SHOP_DOMAIN,
+                storefrontAccessToken: STOREFRONT_ACCESS_TOKEN,
+              });
+
+              ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('collection', {
+                  id: COLLECTION_ID,
+                  node: document.getElementById('hh-collection'),
+                  moneyFormat: '${{amount}}',
+                  options: {
+                    product: {
+                      buttonDestination: 'cart',
+                      text: { button: 'Add to cart' },
+                      contents: { img: true, title: true, price: true, options: true, quantity: true },
+                      styles: {
+                        button: {
+                          'background-color':'#000',
+                          'color':'#fff',
+                          'border':'2px solid #111',
+                          'border-radius':'12px',
+                          'box-shadow':'none'
+                        },
+                        buttonHover: { 'background-color':'#111','color':'#fff' },
+                        buttonDisabled: { 'background-color':'#333','color':'#999' }
+                      }
+                    },
+                    modalProduct: {
+                      contents: { img:true, imgWithCarousel:true, options:true, quantity:true, button:true, buttonWithQuantity:true },
+                      text: { button:'Add to cart' },
+                      styles: {
+                        button: {
+                          'background-color':'#000','color':'#fff','border':'2px solid #111','border-radius':'12px','box-shadow':'none'
+                        },
+                        buttonHover: { 'background-color':'#111','color':'#fff' }
+                      }
+                    },
+                    cart: {
+                      startOpen: false,
+                      popup: true,
+                      text: { title: "Your cart", button: "Checkout" },
+                      styles: {
+                        button: { 'background-color':'#000','color':'#fff','border-radius':'12px','box-shadow':'none' },
+                        buttonHover: { 'background-color':'#111','color':'#fff' }
+                      }
+                    },
+                    toggle: { sticky: true }
+                  }
+                });
+              });
+            }
+          })();
+        </script>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap grid">
+        <div class="span-6">
+          <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Contact</h2>
+          <p class="lead">Have a question, want to sponsor a giveaway, or book a custom break? Drop us a note.</p>
+
+          <form action="mailto:happyhitssocials@gmail.com" method="POST" enctype="text/plain">
+            <input name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <textarea name="message" placeholder="Tell us what you need" required></textarea>
+            <button class="cta" type="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+        <a class="pill" href="mailto:happyhitssocials@gmail.com">✉️ happyhitssocials@gmail.com</a>
+      </div>
+      © <span id="year"></span> Happy Hits · “Hot hands, happy hits.”
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const burger = document.getElementById('burgerBtn');
+    const links = document.getElementById('navLinks');
+    burger?.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+</body>
+</html>
