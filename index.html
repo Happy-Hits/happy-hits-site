@@ -25,8 +25,12 @@
       --accent:#f4b860; --accent-dark:#9b6e22;
     }
     *{box-sizing:border-box} html,body{margin:0}
-    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--paper); color:var(--ink); line-height:1.6
+    }
 
+    /* Header / Nav */
     header{position:sticky;top:0;z-index:20;background:rgba(255,244,224,.9);backdrop-filter:blur(6px) saturate(120%);border-bottom:2px solid #e7d7b6}
     .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
     nav{display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -44,6 +48,7 @@
       .burger{display:block}
     }
 
+    /* Layout */
     main section{padding:64px 0}
     .hero{background:#fff1d8}
     .hero h1{font-family:'Bangers',cursive;font-size:clamp(42px,7vw,64px);margin:0 0 10px}
@@ -58,8 +63,10 @@
     @media (max-width:900px){.span-6{grid-column:1/-1}}
 
     .card{border:2.5px solid var(--ink);border-radius:22px;padding:18px;background:#fffef8;box-shadow:6px 6px 0 #00000010}
+
+    /* Shopify UI containers */
+    #hh-collection{margin-top:16px}
     .video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;border:2.5px solid var(--ink);background:#000;box-shadow:6px 6px 0 #00000010}
-    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
     footer{padding:24px 0;background:#fffaf0;text-align:center;font-size:14px;border-top:2px solid #e7d7b6}
   </style>
@@ -92,8 +99,8 @@
         <h1>Good hit, good mood.</h1>
         <p>We’re Happy Hits — sports card breaks, live streams, and great vibes. Join our breaks, chase grails, and score happy hits with Marco &amp; Jen.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="live.html" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg"> Watch Live</a>
-          <a href="#shop" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shopify.svg"> Shop</a>
+          <a href="live.html" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/youtube.svg"> Watch Live</a>
+          <a href="#shop" class="cta"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/shopify.svg"> Shop</a>
         </div>
       </div>
     </section>
@@ -107,77 +114,57 @@
 
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
             <a class="pill" href="https://www.instagram.com/happyhitscards/" target="_blank" rel="noopener">
-              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg"> Instagram
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/instagram.svg"> Instagram
             </a>
             <a class="pill" href="https://www.whatnot.com/user/marcojam_happyhits" target="_blank" rel="noopener">
               <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/whatnot.svg"> Whatnot
             </a>
             <a class="pill" href="https://www.youtube.com/channel/UC1-7AJwbfj2rJ8V-6QJhlSw" target="_blank" rel="noopener">
-              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/youtube.svg"> YouTube
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/youtube.svg"> YouTube
             </a>
           </div>
         </div>
 
         <div class="span-6">
-          <!-- (Removed quick facts as requested) -->
+          <!-- (Quick facts removed) -->
           <div class="card" style="display:none"></div>
         </div>
       </div>
     </section>
 
-    <!-- SHOP (Shopify embed) -->
+    <!-- SHOP (Shopify embed with variants + cart) -->
     <section id="shop">
       <div class="wrap">
         <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Shop</h2>
         <p class="lead">Browse our collection right here. If nothing appears, use the button below.</p>
 
-        <!-- Fallback button in case the embed isn't configured yet -->
+        <!-- Fallback link (always works) -->
         <p><a class="pill" href="https://happyhitscards.myshopify.com/collections/all" target="_blank" rel="noopener">
-          <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shopify.svg"> Open our Shopify collection
+          <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/shopify.svg"> Open our Shopify collection
         </a></p>
 
-        <!-- ✅ Shopify Buy Button — TODO: paste your credentials (see comments) -->
+        <!-- Embedded collection -->
         <div id="hh-collection"></div>
 
         <script>
-          /**
-           * HOW TO ACTIVATE THIS EMBED (2 minutes)
-           * 1) In Shopify admin, add the "Buy Button" sales channel.
-           * 2) Create a Buy Button for: Collection → "All products" (or your preferred collection).
-           * 3) Click "Copy code". In that code you'll see:
-           *    - shop domain (yours is happyhitscards.myshopify.com)
-           *    - storefront access token
-           *    - collection id
-           * 4) Paste those 3 values into the placeholders below, then save this file.
-           */
-          const SHOP_DOMAIN = "vi0mtb-k1.myshopify.com";                // ✅ already set
-          const STOREFRONT_ACCESS_TOKEN = "741fcfc0e0b6abeab7408acbc86cd351";     // 🔁 paste from Shopify Buy Button code
-          const COLLECTION_ID = "299786338392";                  // 🔁 paste numeric/gid from Shopify code
+          /* Shopify Buy Button configuration — shows variant selectors + cart */
+          const SHOP_DOMAIN = "vi0mtb-k1.myshopify.com";
+          const STOREFRONT_ACCESS_TOKEN = "741fcfc0e0b6abeab7408acbc86cd351";
+          const COLLECTION_ID = "299786338392";
 
           (function() {
             var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-            if (window.ShopifyBuy) {
-              if (window.ShopifyBuy.UI) {
-                initShopifyBuy();
-              } else {
-                loadScript();
-              }
-            } else {
-              loadScript();
+            if (window.ShopifyBuy && window.ShopifyBuy.UI) init(); else {
+              var s = document.createElement('script'); s.async = true; s.src = scriptURL;
+              s.onload = init; document.head.appendChild(s);
             }
-            function loadScript() {
-              var script = document.createElement('script');
-              script.async = true;
-              script.src = scriptURL;
-              script.onload = initShopifyBuy;
-              document.head.appendChild(script);
-            }
-            function initShopifyBuy() {
-              if (!SHOP_DOMAIN || !STOREFRONT_ACCESS_TOKEN || !COLLECTION_ID) return;
+
+            function init() {
               var client = ShopifyBuy.buildClient({
                 domain: SHOP_DOMAIN,
                 storefrontAccessToken: STOREFRONT_ACCESS_TOKEN,
               });
+
               ShopifyBuy.UI.onReady(client).then(function (ui) {
                 ui.createComponent('collection', {
                   id: COLLECTION_ID,
@@ -185,15 +172,33 @@
                   moneyFormat: '${{amount}}',
                   options: {
                     product: {
-                      buttonDestination: 'checkout',
-                      isButton: true,
-                      text: { button: 'Buy now' },
-                      padding: 12,
-                      contents: { img: true, title: true, price: true, options: false }
+                      buttonDestination: 'cart',       // add to cart (not direct checkout)
+                      text: { button: 'Add to cart' },
+                      contents: {
+                        img: true,
+                        title: true,
+                        price: true,
+                        options: true,                 // show variant selectors
+                        quantity: true                 // allow quantity select
+                      }
                     },
-                    cart: { startOpen: false },
-                    toggle: { sticky: true },
-                    productSet: { styles: { products: { '@media (min-width: 601px)': { 'grid-template-columns': 'repeat(3, 1fr)' } } } }
+                    cart: {
+                      startOpen: false,
+                      popup: true,                     // floating cart toggle
+                      text: { title: "Your cart", button: "Checkout" }
+                    },
+                    toggle: {
+                      sticky: true                    // cart toggle stays visible
+                    },
+                    productSet: {
+                      styles: {
+                        products: {
+                          '@media (min-width: 601px)': {
+                            'grid-template-columns': 'repeat(3, 1fr)'
+                          }
+                        }
+                      }
+                    }
                   }
                 });
               });
@@ -210,7 +215,7 @@
           <h2 style="font-family:'Bangers',cursive;font-size:42px;margin:0 0 12px">Contact</h2>
           <p class="lead">Have a question, want to sponsor a giveaway, or book a custom break? Drop us a note.</p>
 
-          <!-- For a real in-page form later, replace mailto: with a Formspree endpoint -->
+          <!-- Mailto for now; we can switch to Formspree later -->
           <form action="mailto:happyhitssocials@gmail.com" method="POST" enctype="text/plain">
             <input name="name" placeholder="Your name" required />
             <input type="email" name="email" placeholder="Your email" required />
